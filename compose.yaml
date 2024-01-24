@@ -1,0 +1,18 @@
+services:
+  nginx:
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - NGINX_PORT=
+      - NGINX_HOST=
+      - NGINX_SSL_CERT=
+      - NGINX_SSL_KEY=
+    volumes:
+      - type: bind
+        source:
+        target:
+      - type: bind
+        source:
+        target:
