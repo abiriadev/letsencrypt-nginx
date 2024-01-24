@@ -2,17 +2,16 @@ services:
   nginx:
     build: .
     ports:
-      - 80:80
       - 443:443
     environment:
-      - NGINX_PORT=
-      - NGINX_HOST=
-      - NGINX_SSL_CERT=
-      - NGINX_SSL_KEY=
+      - NGINX_PORT=443
+      - NGINX_HOST=localhost
+      - NGINX_SSL_CERT=/etc/nginx/keys/fullchain.pem
+      - NGINX_SSL_KEY=/etc/nginx/keys/privkey.pem
     volumes:
       - type: bind
-        source:
-        target:
+        source: /etc/letsencrypt/live/${YOUR_DOMAIN}/fullchain.pem
+        target: /etc/nginx/keys/fullchain.pem
       - type: bind
-        source:
-        target:
+        source: /etc/letsencrypt/live/${YOUR_DOMAIN}/privkey.pem
+        target: /etc/nginx/keys/privkey.pem
