@@ -1,5 +1,6 @@
 server {
-    listen       ${NGINX_PORT} ssl;
+    listen       80;
+    listen       443 default_server ssl;
 
     ssl_certificate ${NGINX_SSL_CERT};
     ssl_certificate_key ${NGINX_SSL_KEY};

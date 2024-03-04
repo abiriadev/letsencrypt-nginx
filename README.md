@@ -4,8 +4,8 @@
 
 ```sh
 $ docker run \
+    -p 80:80 \
     -p 443:443 \
-    -e NGINX_PORT=443 \
     -e NGINX_SSL_CERT=/etc/nginx/keys/fullchain.pem \
     -e NGINX_SSL_KEY=/etc/nginx/keys/privkey.pem \
     -v /etc/letsencrypt/live/${YOUR_DOMAIN}/fullchain.pem:/etc/nginx/keys/fullchain.pem \
